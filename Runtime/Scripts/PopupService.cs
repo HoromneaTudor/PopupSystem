@@ -11,7 +11,7 @@ namespace tRo.PopupSystem
         private readonly Transform _popupParent;
         private readonly IPopupLoader _popupLoader;
 
-        private Dictionary<string, PopupBase> _openedPopups;
+        private Dictionary<string, PopupBase> _openedPopups = new();
         public IReadOnlyList<string> _openedPopupIds => _openedPopups.Keys.ToList();
 
         public event Action<string> PopupClosed;
@@ -71,7 +71,8 @@ namespace tRo.PopupSystem
             }
 
             var instance = UnityEngine.Object.Instantiate(popup, _popupParent);
-            //instance?.Show(popupData);
+            instance.Show(popupData);
+            _openedPopups[popupData.Id] = instance;
 
             PopupOpened?.Invoke(popupData.Id);
 
