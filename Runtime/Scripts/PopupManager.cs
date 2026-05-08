@@ -20,7 +20,7 @@ namespace tRo.PopupSystem
 
         private void Initialize(PopupReferenceTable popupReferenceTable)
         {
-            PopupLoader = new AddresablesPopupLoader(popupReferenceTable, UnityEngine.Debug.unityLogger);
+            PopupLoader = new AddressablesPopupLoader(popupReferenceTable, UnityEngine.Debug.unityLogger);
             PopupService = new PopupService(PopupLoader, _popupParent);
         }
     }
